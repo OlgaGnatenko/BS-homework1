@@ -10,26 +10,12 @@ body {
   font-size: 1rem;
 }
 
-/*  Mobile display */
-
-@media only screen and (max-width: 768px) {
-  .buttons-social,
-  .nav {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 769px) {
-  .hamburger-wrp {
-    display: none;
-  }
-}
-
 /* Regular styles */
 
 .body {
   display: flex;
   flex-direction: column;
+  min-width: 550px;
 }
 
 a:hover {
@@ -42,14 +28,13 @@ a:hover {
 
 .header-wrp,
 .footer-wrp {
-  background-color: yellow;
+  background-color: lightgoldenrodyellow;
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
 .container {
-  background-color: yellow;
   width: 100%;
   flex: 1 0 auto;
   display: flex;
@@ -67,7 +52,7 @@ a:hover {
 }
 
 .header {
-  background-color: lightgreen;
+  background-color: lightgoldenrodyellow;
   padding: 0.25rem;
   display: flex;
 
@@ -92,9 +77,15 @@ a:hover {
   }
 
   .nav {
-    ul,
+    ul {
+      display: flex;
+      height: 100%;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+
     li {
-      display: inline-block;
+      padding: 0.1rem;
     }
   }
 
@@ -116,7 +107,9 @@ a:hover {
 }
 
 .main {
-  background-color: lightseagreen;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
 }
 
 .aside {
@@ -124,7 +117,7 @@ a:hover {
 }
 
 .footer {
-  background-color: lightblue;
+  background-color: lightgoldenrodyellow;
   height: 60px;
 }
 
@@ -141,7 +134,8 @@ a:hover {
 
 /* Hamburger */
 
-.hamburger-wrp {
+.mobile-menu-wrp {
+  height: 0;
   a {
     text-decoration: none;
     color: #232323;
@@ -152,8 +146,8 @@ a:hover {
   #menu-toggle {
     display: block;
     position: relative;
-    top: 50px;
-    left: 50px;
+    top: 15px;
+    left: 15px;
 
     z-index: 1;
 
@@ -220,8 +214,8 @@ a:hover {
 
   #menu {
     position: absolute;
-    width: 300px;
-    height: 100vh;
+    width: 250px;
+    height: calc(100vh + 51px);
     margin: -100px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
@@ -242,5 +236,63 @@ a:hover {
 
   #menu-toggle input:checked ~ ul {
     transform: none;
+  }
+}
+
+.search-mobile {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  cursor: pointer;
+}
+
+/* Card */
+.card {
+  display: flex;
+  min-width: 200px;
+  max-width: 300px;
+  height: 150px;
+  border: 1px solid #999999;
+  border-radius: 5px;
+
+  .card__photo {
+    max-width: 75px;
+    margin: 5px 15px;
+    overflow: hidden;
+
+    img {
+      height: 120px;
+    }
+  }
+}
+
+/*  Mobile display only */
+
+@media only screen and (max-width: 768px) {
+  .buttons-social,
+  .nav {
+    display: none;
+  }
+
+  .header {
+    justify-content: center;
+    margin-top: 50px;
+
+    .buttons-wrp {
+      display: none;
+    }
+
+    .logo {
+      height: 50px;
+    }
+  }
+}
+
+/* Desktop display only */
+
+@media only screen and (min-width: 769px) {
+  .mobile-menu-wrp {
+    display: none;
   }
 }
